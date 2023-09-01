@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Agregué para animación #title" -->
+    <ion-title #title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Agregué-->
+
+  <ion-list name="inputs">
+    <ion-item>
+      <ion-input [(ngModel)]="Email" label="Ingrese Email" type="email" placeholder="email@domain.com" name="input"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="Contra" label="Ingrese Contraseña" type="password"  #input></ion-input>
+    </ion-item>
+  </ion-list>
+  <!-- -->
+  <ion-button (click)="delete()" (click)="clearInput()">borrar</ion-button>
+
+</ion-content>
