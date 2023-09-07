@@ -32,7 +32,7 @@
     <br>
     <br>
     <ion-input
-    type="email"
+    type="password"
     fill="solid"
     label="Contraseña"
     labelPlacement="floating"
@@ -41,14 +41,37 @@
     [(ngModel)]="Contra"
   ></ion-input>
   </ion-list>
-  <label for="" id="laber">No tienes cuenta?:</label> <a [routerLink]="['/register']">REGISTER</a>
+  <label for="" id="laber">No tienes cuenta?:</label> <a [routerLink]="['/register']">Register</a><br>
+  <label for="" id="laber">Olvidaste tu contraseña?</label> <a (click)="setOpen(true)">Restablecer</a>
   <!-- -->
-  <br><br><br><br><br>
-  <ion-button (click)="delete()" (click)="clearInput()">borrar</ion-button>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Reestablecer contraseña</ion-title>
 
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <br><br><br><br><br>
+        <ion-input type="password" label="Ingrese contraseña" labelPlacement="floating" ></ion-input>
+        <ion-input type="password" label="Ingrese nueva contraseña" labelPlacement="floating" ></ion-input>
+
+        <ion-button id="rescontra" (click)="setOpen(false)">Ingresar</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <br><br><br><br><br>
+
+
+  <div id="botones">
+    <ion-button (click)="delete()" (click)="clearInput()">borrar</ion-button>
+    
+    <ion-button id="ingresar" [routerLink]="['/lobby']">Ingresar</ion-button>
+  </div>
 </ion-content>
 
 
 <ion-footer>
-  <label for="" id="end" >&copy; 2023 Pasto International</label>
+  <label for="" id="end" > &copy; 2023 Pasto International</label>
 </ion-footer>

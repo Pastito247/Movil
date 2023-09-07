@@ -1,7 +1,8 @@
-import { Component,ElementRef, ViewChild, ViewChildren , /*Agregado para otras funcionalidades */ OnInit } from '@angular/core';
+import { Component,ElementRef, ViewChild, /*Agregado para otras funcionalidades */ OnInit } from '@angular/core';
 //Agregué para animación
-import { Animation, AnimationController, IonCard, IonInput, createAnimation } from '@ionic/angular';
-import type { QueryList } from '@angular/core';
+import { Animation, AnimationController, createAnimation } from '@ionic/angular';
+  
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -61,5 +62,10 @@ export class HomePage implements OnInit {
     this.Contra= '';
   }
   
-}
+  isModalOpen = false;
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+  
+}

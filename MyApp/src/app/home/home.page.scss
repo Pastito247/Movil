@@ -49,5 +49,16 @@ a{
   width: 30%;
   height: 20%;
 }
+#botones{
+ float:inherit;
+}
+
+#ingresar{
+float: right;
+}
+
+#rescontra{
+  float: right;
+}
 ion-content{ --ion-background-color:#000000; }
 ion-header{ --ion-background-color:#b9b9b9;}
