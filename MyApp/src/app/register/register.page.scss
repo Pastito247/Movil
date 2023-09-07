@@ -1,0 +1,52 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  #inputs-login{
+  margin-top: 10%;
+  background-color: transparent;
+  }
+  #laber{
+    color: white;
+  }
+  #end{
+    color: white;
+    margin-left: 100%;
+  }#Logo{
+    width: 20%;
+    height: 15%;
+  }
+  #logotipo{
+    margin-left: 36%;
+    width: 30%;
+    height: 20%;
+  }
+#ingresar{
+    float: right;
+}
+  ion-content{ --ion-background-color:#000000; }
+  ion-header{ --ion-background-color:#b9b9b9;}
