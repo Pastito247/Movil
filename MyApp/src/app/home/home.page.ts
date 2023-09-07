@@ -26,9 +26,9 @@ export class HomePage implements OnInit {
       .duration(3500)
       .iterations(Infinity)
       .keyframes([
-        { offset: 0, transform: 'translateX(5%)' },
-        { offset: 0.5, transform: 'translateX(78%)' },
-        { offset: 1, transform: 'translateX(5%)' },
+        { offset: 0, transform: 'translateX(0%)' },
+        { offset: 0.5, transform: 'translateX(80%)' },
+        { offset: 1, transform: 'translateX(0%)' },
       ]);
       cardA.play();
 
