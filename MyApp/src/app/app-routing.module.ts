@@ -23,6 +23,12 @@ const routes: Routes = [
     path: 'dato-user',
     loadChildren: () => import('./dato-user/dato-user.module').then( m => m.DatoUserPageModule)
   },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
+  
+    
 
 ];
 
