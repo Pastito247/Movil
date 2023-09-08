@@ -48,14 +48,14 @@
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-title>Restablecer contraseña</ion-title>
+          <ion-title id="res">Restablecer contraseña</ion-title>
 
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
         <br><br><br><br><br>
-        <ion-input type="Email" label="Ingrese correo" labelPlacement="floating" ></ion-input>
-        <ion-input type="password" label="Ingrese nueva contraseña" labelPlacement="floating" ></ion-input>
+        <ion-input type="Email" label="Ingrese correo" labelPlacement="floating" id="mod"></ion-input>
+        <ion-input type="password" label="Ingrese nueva contraseña" labelPlacement="floating" id="mod"></ion-input>
 
         <ion-button id="rescontra" (click)="setOpen(false)">Ingresar</ion-button>
       </ion-content>

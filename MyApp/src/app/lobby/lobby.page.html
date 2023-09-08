@@ -1,13 +1,71 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>lobby</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="main-content" >
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">lobby</ion-title>
+      <ion-title id="item" item>DuocExpress </ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+
+
+
+  <ion-content class="ion-padding">
+    <ion-item id="item" routerLink="/exit">
+      <ion-icon id="item" name="home-outline" slot="start"></ion-icon>
+      Menu Principal
+    </ion-item>
+    <ion-item id="item" routerLink="/home">
+      <ion-icon id="item" name="person-outline" slot="start"></ion-icon>
+      Perfil
+    </ion-item>
+    
+    <ion-item id="item" routerLink="/start">
+      <ion-icon id="item" name="car-outline" slot="start"></ion-icon>
+      Registrate como conductor
+    </ion-item>
+    
+    <ion-item id="item" routerLink="/chatbox">
+      <ion-icon id="item" name="chatbox-outline" slot="start"></ion-icon>
+      Contactos
+    </ion-item>
+
+    <ion-item id="item" routerLink="/card">
+      <ion-icon id="item" name="card-outline" slot="start"></ion-icon>
+      Pagos
+    </ion-item>
+
+    <ion-item id="item" routerLink="/settings">
+      <ion-icon id="item" name="settings-outline" slot="start"></ion-icon>
+      Configuración
+    </ion-item>
+
+
+    
+    <ion-item id="item" routerLink="/home">
+      <ion-icon id="item" name="exit-outline" slot="start"></ion-icon>
+      Cerrar sesion
+    </ion-item> 
+  
+    </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button id="item"></ion-menu-button>
+      </ion-buttons>
+      <ion-title id="item">DuocExpress</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> 
+    <ion-content>
+      <div class="container">
+        <capacitor-google-map #map></capacitor-google-map>
+        </div>
+
+        
+    </ion-content>
+  </ion-content>
+</div>
+
+
+
