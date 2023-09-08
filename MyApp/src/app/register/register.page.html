@@ -19,15 +19,17 @@
   <!-- Agregué-->
   <br><br>
   <img src="../assets/img/logotipo.png" id="logotipo">
-  <ion-input
-  type="User"
-  fill="solid"
-  label="Usuario"
-  labelPlacement="floating"
-  helperText="Ingrese Nombre de Usuario"
-  errorText="Invalid user"
-></ion-input>
+
   <ion-list name="inputs" id="inputs-login">
+    <ion-input
+    type="User"
+    fill="solid"
+    label="Usuario"
+    labelPlacement="floating"
+    helperText="Ingrese Nombre de Usuario"
+    errorText="Invalid user"
+  ></ion-input>
+  <br><br>
     <ion-input
     type="email"
     fill="solid"
@@ -48,6 +50,7 @@
   ></ion-input>
 
   </ion-list>
+  <label for="" id="laber">Ya posees una cuenta?:</label> <a [routerLink]="['/home']">Iniciar Sesion</a><br>
   <!-- -->
   <br><br><br><br><br>
 
