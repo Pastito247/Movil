@@ -36,10 +36,10 @@ export class LobbyPage {
     }
     });
     await this.addMarkers();
-    
   }
 
   async addMarkers(){
+    
     const markers: Marker[] =[
     {
       coordinate:{
@@ -78,6 +78,7 @@ export class LobbyPage {
 
     });
   }
+  
 }
   
 

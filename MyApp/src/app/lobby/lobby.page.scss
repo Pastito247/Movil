@@ -1,7 +1,6 @@
 #container {
     text-align: center;
   
-    position: absolute;
     left: 0;
     right: 0;
     top: 50%;
@@ -32,7 +31,7 @@
   }
   
   capacitor-google-map {
-    display: inline-block;
+    display:block;
     width: 100%;
     height: 50%;
   }
