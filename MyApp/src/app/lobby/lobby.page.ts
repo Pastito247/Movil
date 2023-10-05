@@ -3,6 +3,7 @@ import { GoogleMap, Marker} from '@capacitor/google-maps';
 import { ModalController } from "@ionic/angular";
 import { environment } from "src/environments/environment";
 import { ModalPage } from "../modal/modal.page";
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-lobby',
@@ -12,9 +13,21 @@ import { ModalPage } from "../modal/modal.page";
 export class LobbyPage {
   @ViewChild('map')mapRef!: ElementRef;
   map!: GoogleMap;
+  id : any;
+  constructor(private modalCtrl:ModalController, private api: ApiService) {
+  }
 
-  constructor(private modalCtrl:ModalController) {}
 
+  ngOnInit(){
+    this.id = this.ac
+    this.api.getPosts().subscribe((res)=>{
+      console.log(res[0]);
+      },(error)=>{
+      console.log(error);
+      });
+  }
+
+  
 
   ionViewDidEnter(){
     this.createMap();
@@ -78,7 +91,7 @@ export class LobbyPage {
 
     });
   }
-  
+
 }
   
 
