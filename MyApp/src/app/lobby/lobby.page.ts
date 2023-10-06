@@ -14,14 +14,15 @@ export class LobbyPage {
   @ViewChild('map')mapRef!: ElementRef;
   map!: GoogleMap;
   id : any;
-  constructor(private modalCtrl:ModalController, private api: ApiService) {
-  }
+  datos = [];
+  constructor(private modalCtrl:ModalController, private api: ApiService) {}
 
-
+  
   ngOnInit(){
-    this.id = this.ac
-    this.api.getPosts().subscribe((res)=>{
+    
+    this.api.getPost().subscribe((res)=>{
       console.log(res[0]);
+      this.datos = res;
       },(error)=>{
       console.log(error);
       });

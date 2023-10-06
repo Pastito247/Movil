@@ -27,7 +27,6 @@
     labelPlacement="floating"
     helperText="Ingrese Email"
     errorText="Invalid email"
-    [(ngModel)]="Email"
   ></ion-input>
     <br>
     <br>
@@ -38,7 +37,6 @@
     labelPlacement="floating"
     helperText="Ingrese Contraseña"
     errorText="Invalid email"
-    [(ngModel)]="Contra"
   ></ion-input>
   </ion-list>
   <label for="" id="laber">No tienes cuenta?:</label> <a [routerLink]="['/register']">Register</a><br>
@@ -65,8 +63,6 @@
 
 
   <div id="botones">
-    <ion-button (click)="delete()" (click)="clearInput()">borrar</ion-button>
-    
     <ion-button id="ingresar" [routerLink]="['/lobby']">Ingresar</ion-button>
   </div>
 </ion-content>

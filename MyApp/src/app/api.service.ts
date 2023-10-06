@@ -23,5 +23,10 @@ export class ApiService {
   retry(3)
   );
   }
+  getPost():Observable<any>{
+    return this.http.get(this.apiURL).pipe(
+    retry(3)
+    );
+    }
 
 }

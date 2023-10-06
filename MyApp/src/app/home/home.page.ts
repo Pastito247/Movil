@@ -55,17 +55,11 @@ export class HomePage implements OnInit {
   delete() {
     this.animation.play();
   }
-  Email: string = ''; // Inicializa el valor del campo de entrada
-  Contra: string='';
-  clearInput() {
-    this.Email = ''; // Limpia el valor del campo de entrada
-    this.Contra= '';
-  }
   
   isModalOpen = false;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  
+
 }
