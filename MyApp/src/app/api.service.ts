@@ -18,15 +18,15 @@ export class ApiService {
  // Se declara la variable http de tipo HttpClient
  constructor(private http:HttpClient) { }
 
- getPosts(id:number):Observable<any>{
-  return this.http.get(this.apiURL+id).pipe(
+ getPosts(correo:string):Observable<any>{
+  return this.http.get(this.apiURL+correo).pipe(
   retry(3)
   );
   }
-  getPost():Observable<any>{
-    return this.http.get(this.apiURL).pipe(
-    retry(3)
-    );
-    }
 
+ createPost(post={}):Observable<any> {
+  return this.http.post(this.apiURL,post,this.httpOptions).pipe(
+  retry(3)
+  );
+  }
 }

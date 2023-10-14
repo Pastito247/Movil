@@ -13,16 +13,30 @@
       <ion-icon id="item" name="home-outline" slot="start"></ion-icon>
       Menu Principal
     </ion-item>
-    <ion-item id="item">
+    <ion-item id="item" (click)="setOpen(true)">
       <ion-icon id="item" name="person-outline" slot="start"></ion-icon>
       Perfil
     </ion-item>
-    
-    <ion-item id="item" routerLink="/start">
-      <ion-icon id="item" name="car-outline" slot="start"></ion-icon>
-      Registrate como conductor
-    </ion-item>
-    
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title id="res">Datos</ion-title>
+            <ion-title><a (click)="setOpen(false)" id="cerrar">Cerrar</a></ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <label for="name">Nombre: {{ usuario }}</label>
+          <br>
+          <label for="mail">Correo: {{ correo }}</label>
+          <br>
+          <label for="dire">Dirección: {{ direccion }}</label>
+          <br>
+          <label for="phone">Telefono: {{ fono }}</label>
+          <br>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
     <ion-item id="item" routerLink="/chatbox">
       <ion-icon id="item" name="chatbox-outline" slot="start"></ion-icon>
       Contactos
@@ -57,14 +71,14 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding"> 
+    <h4> Hacia donde se dirige? </h4>
     <ion-content>
       <div class="container">
         <capacitor-google-map #map></capacitor-google-map>
         </div>
     </ion-content>
-    <h4> Ubicaciones Recientes </h4>
+
   </ion-content>
-  
 </div>
 
 

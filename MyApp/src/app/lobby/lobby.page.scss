@@ -1,10 +1,8 @@
 #container {
     text-align: center;
-  
     left: 0;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
   }
   
   #container strong {
@@ -15,9 +13,7 @@
   #container p {
     font-size: 16px;
     line-height: 22px;
-  
     color: #8c8c8c;
-  
     margin: 0;
   }
   
@@ -41,5 +37,18 @@
   
 }
 
-ion-content{ --ion-background-color:#000000; }
+#Ids{
+  background-color: aliceblue;
+  color: #000000;
+}
+#res{
+  float: left;
+}
+#cerrar{
+  float: right;
+  text-decoration: none;
+  color: white;
+  font-size: large;
+}
+ion-content{ --ion-background-color: #000000;}
 ion-header{ --ion-background-color:#3d3d3d;}

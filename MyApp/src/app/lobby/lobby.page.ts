@@ -4,28 +4,44 @@ import { ModalController } from "@ionic/angular";
 import { environment } from "src/environments/environment";
 import { ModalPage } from "../modal/modal.page";
 import { ApiService } from '../api.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-lobby',
   templateUrl: './lobby.page.html',
   styleUrls: ['./lobby.page.scss'],
 })
-export class LobbyPage {
+export class LobbyPage implements OnInit {
   @ViewChild('map')mapRef!: ElementRef;
   map!: GoogleMap;
-  id : any;
-  datos = [];
-  constructor(private modalCtrl:ModalController, private api: ApiService) {}
+  posts = [];
+  usuario!: string | null;
+  correo!: string | null;
+  fono!: number | null;
+  conductor!: number | null;
+  direccion!: string | null;
 
-  
-  ngOnInit(){
-    
-    this.api.getPost().subscribe((res)=>{
-      console.log(res[0]);
-      this.datos = res;
-      },(error)=>{
-      console.log(error);
-      });
+  isConductor: boolean = false;
+  constructor(private modalCtrl:ModalController, private api: ApiService,private authService: AuthService) {}
+
+  ngOnInit() {
+    this.usuario = this.authService.getUser();
+    this.fono = this.authService.getFono();
+    this.correo = this.authService.getMail();
+    this.direccion = this.authService.getDireccion();
+    this.conductor = this.authService.getConductor();
+
+    if(this.conductor === 1){
+      this.isConductor = true;
+    }
+
+    console.log(this.conductor)
+  }
+
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 
   
@@ -44,7 +60,6 @@ export class LobbyPage {
       center: {
         lat:-33.04353334085918,
         lng:-71.60435289558721,
-
       },
       zoom: 14,
     }

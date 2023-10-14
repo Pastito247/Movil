@@ -20,17 +20,21 @@
   <br><br>
   <img src="../assets/img/logotipo.png" id="logotipo">
   <ion-list name="inputs" id="inputs-login">
-    <ion-input
-    type="email"
-    fill="solid"
-    label="Email"
-    labelPlacement="floating"
-    helperText="Ingrese Email"
-    errorText="Invalid email"
-  ></ion-input>
+      <ion-input
+      type="email"
+      fill="solid"
+      label="Email"
+      labelPlacement="floating"
+      helperText="Ingrese Email"
+      errorText="Invalid email"
+      name="Correo"
+      id="correo"
+      ></ion-input>
     <br>
     <br>
     <ion-input
+    id="contra"
+    name="Contra"
     type="password"
     fill="solid"
     label="Contraseña"
@@ -63,7 +67,7 @@
 
 
   <div id="botones">
-    <ion-button id="ingresar" [routerLink]="['/lobby']">Ingresar</ion-button>
+    <ion-button id="ingresar" (click)="validar()">Ingresar</ion-button>
   </div>
 </ion-content>
 
