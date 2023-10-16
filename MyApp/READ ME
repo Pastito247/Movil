@@ -1,0 +1,5 @@
+npm install -g @ionic/cli
+
+npm i @capacitor/google-maps
+
+npm i @capacitor/geolocation
