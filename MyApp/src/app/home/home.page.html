@@ -44,25 +44,9 @@
   ></ion-input>
   </ion-list>
   <label for="" id="laber">No tienes cuenta?:</label> <a [routerLink]="['/register']">Register</a><br>
-  <label for="" id="laber">Olvidaste tu contraseña?</label> <a (click)="setOpen(true)">Restablecer</a>
+  <label for="" id="laber">Olvidaste tu contraseña?</label> <a>Restablecer</a>
   <!-- -->
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title id="res">Restablecer contraseña</ion-title>
 
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <br><br><br><br><br>
-        <ion-input type="Email" label="Ingrese correo" labelPlacement="floating" id="mod"></ion-input>
-        <ion-input type="password" label="Ingrese nueva contraseña" labelPlacement="floating" id="mod"></ion-input>
-
-        <ion-button id="rescontra" (click)="setOpen(false)">Ingresar</ion-button>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
   <br><br><br><br><br>
 
 

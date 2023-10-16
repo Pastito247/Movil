@@ -38,14 +38,6 @@ export class LobbyPage implements OnInit {
     console.log(this.conductor)
   }
 
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-
-  
-
   ionViewDidEnter(){
     this.createMap();
   }
@@ -108,6 +100,11 @@ export class LobbyPage implements OnInit {
     });
   }
 
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 }
   
 
