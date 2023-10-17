@@ -52,7 +52,7 @@ export class RegisterPage implements OnInit {
 
       this.api.createPost(post).subscribe((success)=>{
       console.log(success);
-      this.router.navigate(['/lobby']);}
+      this.router.navigate(['/home']);}
       ,error=>{
       console.log(error);
       })

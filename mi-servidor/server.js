@@ -19,11 +19,11 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     type: 'OAuth2',
-    user: 'martynpipe0@gmail.com',
-    pass: 'Patogallina_9',
-    clientId: '947522121995-dr0vgh2rtd6b15fq2gm6hk8bbrmec0h8.apps.googleusercontent.com',
-    clientSecret: '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',
-    refreshToken: '1//04LMrxb7BvVn7CgYIARAAGAQSNwF-L9Irt3vved4BSuH80GjOPbO5E9ShtNUkbzphdGQ5gF2RpMdEQBhcofXEE1CaxIkKANt-wjs'
+    user: 'service.duocexpress@gmail.com',
+    pass: 'Martinysuviolin',
+    clientId: '947522121995-10lgaemnvok3foupnq6qqm0l5amne948.apps.googleusercontent.com',
+    clientSecret: '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',
+    refreshToken: '1//04NBPfa9e1roWCgYIARAAGAQSNwF-L9Ir5yVD-jEo7hV-GBNAUUPWFvSz80SqJRjHKsZ82bfb8Ji9P30M1rUMHw5YX_ELr7AeeaE'
   }
 });
 
@@ -31,7 +31,7 @@ app.post('/correo', (req, res) => {
   const { destinatario, asunto, cuerpo } = req.body;
 
   const mailOptions = {
-    from: 'martynpipe0@gmail.com',
+    from: 'service.duocexpress@gmail.com',
     to: destinatario,
     subject: asunto,
     text: cuerpo
