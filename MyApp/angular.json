@@ -9,6 +9,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "proxyConfig": "proxy.conf.json",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -72,6 +73,13 @@
               "progress": false
             }
           },
+          "proxy": [
+            {
+              "context": ["/api"],
+              "target": "http://localhost:3000",
+              "secure": false
+            }
+          ],
           "defaultConfiguration": "production"
         },
         "serve": {

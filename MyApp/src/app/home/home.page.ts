@@ -4,7 +4,7 @@ import { Animation, AnimationController, IonCard } from '@ionic/angular';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
+import { EmailService } from '../mail.service';
 
 @Component({
   selector: 'app-home',
@@ -14,15 +14,17 @@ import { AuthService } from '../auth.service';
 
 export class HomePage implements OnInit {
   @ViewChild("title", { read: ElementRef}) title!: ElementRef;
-  posts = [];;
+  posts = [];
   confirmacion = false;
   private animation!: Animation;
   correoInput = document.getElementById("Correo");
+  data: any;
   constructor(private router: Router, private animationCtrl: AnimationController, private api: ApiService
-  , private authService: AuthService) {}
+  , private authService: AuthService, private emailService: EmailService) {}
 
   ngOnInit() {
   }
+
 
   ngAfterViewInit() {
     const cardA = this.animationCtrl
@@ -91,5 +93,17 @@ export class HomePage implements OnInit {
       this.animation.play();
     })
   }
-
+ 
+  enviarCorreo() {
+    this.authService.getMail();
+    this.emailService.enviarCorreo('carl.molina@duocuc.cl ', 'Prueba', 'Epico')
+      .subscribe(
+        (response) => {
+          console.log('Correo enviado con éxito', response);
+        },
+        (error) => {
+          console.error('Error al enviar el correo', error);
+        }
+      );
+  }
 }

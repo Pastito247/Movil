@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
 const routes: Routes = [
   {
     path: 'home',
@@ -22,7 +21,11 @@ const routes: Routes = [
   {
     path: 'dato-user',
     loadChildren: () => import('./dato-user/dato-user.module').then( m => m.DatoUserPageModule)
+  },  {
+    path: 'rescontra',
+    loadChildren: () => import('./rescontra/rescontra.module').then( m => m.RescontraPageModule)
   },
+
 
 ];
 
