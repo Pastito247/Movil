@@ -25,6 +25,14 @@ const routes: Routes = [
     path: 'rescontra',
     loadChildren: () => import('./rescontra/rescontra.module').then( m => m.RescontraPageModule)
   },
+  {
+    path: 'conductor',
+    loadChildren: () => import('./conductor/conductor.module').then( m => m.ConductorPageModule)
+  },
+  {
+    path: 'cambiarpass',
+    loadChildren: () => import('./cambiarpass/cambiarpass.module').then( m => m.CambiarpassPageModule)
+  },
 
 
 ];

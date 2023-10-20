@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>cambiarpass</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">cambiarpass</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<br><br><br><br><br>
+<ion-input
+id="correo"
+type="email"
+fill="solid"
+label="Email"
+labelPlacement="floating"
+helperText="Ingrese Email"
+errorText="Invalid email"
+placeholder="xxxxx@duocuc.cl"
+></ion-input>
+<br>
+<br>
+  <ion-input
+  id="contra"
+  fill="solid"
+  label="Nueva contraseña"
+  labelPlacement="floating"
+  helperText="Ingrese Nueva Contraseña"
+  errorText="Invalid pas"
+></ion-input>
+<br><br><br>
+<ion-button (click)="modificarContra()"></ion-button>
+</ion-content>

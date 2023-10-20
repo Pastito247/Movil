@@ -29,4 +29,9 @@ export class ApiService {
   retry(3)
   );
   }
+
+  updatePost(correo: string,post : {}):Observable<any>{
+    return this.http.put(this.apiURL+correo,post,this.httpOptions).pipe
+    (retry(3));
+    }
 }

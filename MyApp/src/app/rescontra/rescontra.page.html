@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>rescontra</ion-title>
+    <ion-title>Verificar codigo</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,16 +11,39 @@
     </ion-toolbar>
   </ion-header>
   <br><br><br><br><br>
-  <ion-input
-  type="email"
+  <ion-input 
   fill="solid"
-  label="Email"
+  label="Codigo"
   labelPlacement="floating"
-  helperText="Ingrese Email"
-  errorText="Invalid email"
-  name="Correo"
-  id="correo"
-  ></ion-input>
+  helperText="Ingrese Codigo"
+  errorText="Codigo erroneo"
+  name="verificar"
+  id="code" ></ion-input>
+
   <br><br><br>
-  <ion-button id="ingresar" (click)="validar()">Enviar Mail</ion-button>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>restaurar contraseña</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-input
+        type="email"
+        fill="solid"
+        label="Email"
+        labelPlacement="floating"
+        helperText="Ingrese Email"
+        errorText="Invalid email"
+        name="Correo"
+        id="correo"
+        ></ion-input>
+        <br><br><br>
+        <ion-button id="ingresar" (click)="validar()">Enviar Mail</ion-button>
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-button id="CambiarContra" (click)="verificarCode()">Ingresar</ion-button>
 </ion-content>

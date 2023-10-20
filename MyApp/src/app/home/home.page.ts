@@ -61,7 +61,11 @@ export class HomePage implements OnInit {
         const conductor = res["conductor"];
         const direccion = res["direccion"]
         this.authService.setDatos(correo,usuario,fono,conductor,direccion);
-        this.router.navigate(['/lobby']);
+        if(res['conductor']=== 1){
+          this.router.navigate(['/conductor']);
+        }else{
+          this.router.navigate(['/lobby']);
+        }
       }else{
         console.log("error")
         this.animation = this.animationCtrl
@@ -94,16 +98,4 @@ export class HomePage implements OnInit {
     })
   }
  
-  enviarCorreo() {
-    this.authService.getMail();
-    this.emailService.enviarCorreo('carl.molina@duocuc.cl ', 'Prueba', 'Epico')
-      .subscribe(
-        (response) => {
-          console.log('Correo enviado con éxito', response);
-        },
-        (error) => {
-          console.error('Error al enviar el correo', error);
-        }
-      );
-  }
 }
