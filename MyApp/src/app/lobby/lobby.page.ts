@@ -5,6 +5,10 @@ import { environment } from "src/environments/environment";
 import { ModalPage } from "../modal/modal.page";
 import { ApiService } from '../api.service';
 import { AuthService } from '../auth.service';
+import { Geolocation} from '@capacitor/geolocation';
+import { HttpClient } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-lobby',
@@ -43,68 +47,61 @@ export class LobbyPage implements OnInit {
   }
 
 
-  async createMap(){
+  async createMap() {
+    const coordinates = await Geolocation.getCurrentPosition();
+    const lat = coordinates.coords.latitude;
+    const lng = coordinates.coords.longitude;
+  
     this.map = await GoogleMap.create({
-    id: 'my-map',
-    apiKey: environment.mapsKey,
-    element: this.mapRef.nativeElement,
-    config: {
-      center: {
-        lat:-33.04353334085918,
-        lng:-71.60435289558721,
-      },
-      zoom: 14,
-    }
+      id: 'my-map',
+      apiKey: environment.mapsKey,
+      element: this.mapRef.nativeElement,
+      config: {
+        center: {
+          lat: lat,
+          lng: lng,
+        },
+        zoom: 14,
+      }
     });
+  
     await this.addMarkers();
   }
+  
 
-  async addMarkers(){
-    
-    const markers: Marker[] =[
-    {
-      coordinate:{
-        lat:33.7,
-        lng:-117.8,
-      },
-      title: 'localhost',
-      snippet:'Best place on earth',
-      },
+  async addMarkers() {
+    const coordinates = await Geolocation.getCurrentPosition();
+    const lat = coordinates.coords.latitude;
+    const lng = coordinates.coords.longitude;
+  
+    const markers: Marker[] = [
       {
         coordinate: {
-          lat:33.7,
-          lng:-117.8,
+          lat: lat,
+          lng: lng,
         },
-        title: 'random place',
-      snippet:'not sure',
-      },
-    
+        title: 'Su ubicación',
+        snippet: 'Estás aquí',
+      }
     ];
-
+  
     const result = await this.map.addMarkers(markers);
-   
-
-    this.map.setOnMarkerClickListener(async (marker) =>{
+  
+    this.map.setOnMarkerClickListener(async (marker) => {
       const modal = await this.modalCtrl.create({
         component: ModalPage,
         componentProps: {
-        marker,},
-        breakpoints:[0, 0.3],
+          marker,
+        },
+        breakpoints: [0, 0.3],
         initialBreakpoint: 0.3,
-       
-      
       });
       modal.present();
-
-
     });
   }
-
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-}
   
+  }
+
+  
+
 

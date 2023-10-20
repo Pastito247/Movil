@@ -11,8 +11,22 @@
       <ion-title size="large">datoUser</ion-title>
     </ion-toolbar>
   </ion-header>
-
+  <div id="img"><img src="../../assets/img/perfil.png" alt="fotoperfil"></div>
+<div id="texto">
+  
   <label for="Datos">
-    <h3>nombre {{ usuario }}</h3>
+    <h3>Su nombre de usuario <span>{{ usuario }}</span></h3>
   </label>
+  <label for="Datos">
+    <h3>Su correo es: <span>{{ correo }}</span></h3>
+  </label>
+  <label for="Datos">
+    <h3>Su numero de telefono <span>{{ fono }}</span></h3>
+  </label>
+  <label for="Datos">
+    <h3>Su direccion es: <span>{{ direccion }}</span></h3>
+  </label>
+</div>
+  <div><ion-button routerLink="/lobby" id="volver">Volver</ion-button></div>
+
 </ion-content>

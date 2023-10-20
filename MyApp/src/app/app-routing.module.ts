@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'dato-user',
     loadChildren: () => import('./dato-user/dato-user.module').then( m => m.DatoUserPageModule)
-  },  {
+  },
+  {
     path: 'rescontra',
     loadChildren: () => import('./rescontra/rescontra.module').then( m => m.RescontraPageModule)
   },
@@ -33,6 +34,12 @@ const routes: Routes = [
     path: 'cambiarpass',
     loadChildren: () => import('./cambiarpass/cambiarpass.module').then( m => m.CambiarpassPageModule)
   },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
+  
+    
 
 
 ];
