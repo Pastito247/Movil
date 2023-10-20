@@ -22,25 +22,30 @@
 
   <ion-list name="inputs" id="inputs-login">
     <ion-input
+    id="nombre"
     type="User"
     fill="solid"
-    label="Usuario"
+    label="Nombre"
     labelPlacement="floating"
-    helperText="Ingrese Nombre de Usuario"
+    helperText="Ingrese Su nombre y apellido"
     errorText="Invalid user"
+    placeholder="Nombre"
   ></ion-input>
   <br><br>
     <ion-input
+    id="correo"
     type="email"
     fill="solid"
     label="Email"
     labelPlacement="floating"
     helperText="Ingrese Email"
     errorText="Invalid email"
+    placeholder="xxxxx@duocuc.cl"
   ></ion-input>
     <br>
     <br>
     <ion-input
+    id="contra"
     type="password"
     fill="solid"
     label="Contraseña"
@@ -48,7 +53,30 @@
     helperText="Ingrese Contraseña"
     errorText="Invalid email"
   ></ion-input>
-
+  <br>
+  <br>
+  <h3>eres Conductor?    <ion-checkbox [(ngModel)]="isChecked" name="myCheckbox" id="check"></ion-checkbox></h3>
+  
+  <br><br>
+  <ion-input
+  id="fono"
+    type="tel"
+    fill="solid"
+    label="Telefono"
+    labelPlacement="floating"
+    helperText="Ingrese su número de telefono"
+    errorText="Invalid phone"
+    placeholder="912345678"
+  ></ion-input>
+  <ion-input
+    id="direccion"
+    fill="solid"
+    label="Dirección"
+    labelPlacement="floating"
+    helperText="Ingrese su dirección"
+    errorText="Invalid phone"
+    placeholder="pasaje x 123 ciudad"
+  ></ion-input>
   </ion-list>
   <label for="" id="laber">Ya posees una cuenta?:</label> <a [routerLink]="['/home']">Iniciar Sesion</a><br>
   <!-- -->
@@ -56,7 +84,7 @@
 
 
   <div id="botones">
-    <ion-button id="ingresar" [routerLink]="['/lobby']">Ingresar</ion-button>
+    <ion-button id="ingresar" (click)="crearPost()">Ingresar</ion-button>
   </div>
 </ion-content>
 

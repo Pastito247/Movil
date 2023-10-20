@@ -20,54 +20,39 @@
   <br><br>
   <img src="../assets/img/logotipo.png" id="logotipo">
   <ion-list name="inputs" id="inputs-login">
-    <ion-input
-    type="email"
-    fill="solid"
-    label="Email"
-    labelPlacement="floating"
-    helperText="Ingrese Email"
-    errorText="Invalid email"
-    [(ngModel)]="Email"
-  ></ion-input>
+      <ion-input
+      type="email"
+      fill="solid"
+      label="Email"
+      labelPlacement="floating"
+      helperText="Ingrese Email"
+      errorText="Invalid email"
+      name="Correo"
+      id="correo"
+      ></ion-input>
     <br>
     <br>
     <ion-input
+    id="contra"
+    name="Contra"
     type="password"
     fill="solid"
     label="Contraseña"
     labelPlacement="floating"
     helperText="Ingrese Contraseña"
     errorText="Invalid email"
-    [(ngModel)]="Contra"
   ></ion-input>
   </ion-list>
   <label for="" id="laber">No tienes cuenta?:</label> <a [routerLink]="['/register']">Register</a><br>
-  <label for="" id="laber">Olvidaste tu contraseña?</label> <a (click)="setOpen(true)">Restablecer</a>
+  <label for="" id="laber">Olvidaste tu contraseña?</label> <a routerLink="/rescontra">Restablecer</a>
   <!-- -->
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Restablecer contraseña</ion-title>
 
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <br><br><br><br><br>
-        <ion-input type="Email" label="Ingrese correo" labelPlacement="floating" ></ion-input>
-        <ion-input type="password" label="Ingrese nueva contraseña" labelPlacement="floating" ></ion-input>
-
-        <ion-button id="rescontra" (click)="setOpen(false)">Ingresar</ion-button>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
   <br><br><br><br><br>
 
 
   <div id="botones">
-    <ion-button (click)="delete()" (click)="clearInput()">borrar</ion-button>
-    
-    <ion-button id="ingresar" [routerLink]="['/lobby']">Ingresar</ion-button>
+    <ion-button id="ingresar" (click)="validar()">Ingresar</ion-button>
+
   </div>
 </ion-content>
 

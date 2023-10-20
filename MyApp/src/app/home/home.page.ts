@@ -1,7 +1,10 @@
 import { Component,ElementRef, ViewChild, /*Agregado para otras funcionalidades */ OnInit } from '@angular/core';
 //Agregué para animación
-import { Animation, AnimationController, createAnimation } from '@ionic/angular';
-  
+import { Animation, AnimationController, IonCard } from '@ionic/angular';
+import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { EmailService } from '../mail.service';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +14,17 @@ import { Animation, AnimationController, createAnimation } from '@ionic/angular'
 
 export class HomePage implements OnInit {
   @ViewChild("title", { read: ElementRef}) title!: ElementRef;
-
-
+  posts = [];
+  confirmacion = false;
   private animation!: Animation;
-
-  constructor(private animationCtrl: AnimationController) {}
+  correoInput = document.getElementById("Correo");
+  data: any;
+  constructor(private router: Router, private animationCtrl: AnimationController, private api: ApiService
+  , private authService: AuthService, private emailService: EmailService) {}
 
   ngOnInit() {
   }
+
 
   ngAfterViewInit() {
     const cardA = this.animationCtrl
@@ -31,41 +37,73 @@ export class HomePage implements OnInit {
         { offset: 0.5, transform: 'translateX(80%)' },
         { offset: 1, transform: 'translateX(0%)' },
       ]);
-      cardA.play();
-
-
-    const cardB = createAnimation()
-      .addElement(document.getElementsByName('inputs'))
-      
-      .keyframes([
-        { offset: 0, transform: 'translatex(0%)'},
-        { offset: 0.5, transform: 'translatex(100%)' },
-        { offset: 1, transform: 'translatex(0%)' },
-      ]);
-
-
-
-    this.animation = this.animationCtrl
-      .create()
-      .duration(2000)
-      .iterations(1)
-      .addAnimation([cardB]);
-  }
-
-  delete() {
-    this.animation.play();
-  }
-  Email: string = ''; // Inicializa el valor del campo de entrada
-  Contra: string='';
-  clearInput() {
-    this.Email = ''; // Limpia el valor del campo de entrada
-    this.Contra= '';
-  }
+      cardA.play();}
   
   isModalOpen = false;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  
+
+  validar() {
+    var correo = (<HTMLInputElement>document.getElementById("correo")).value;
+    var contra = (<HTMLInputElement>document.getElementById("contra")).value;
+    console.log(correo);
+    
+    // validacion
+    this.api.getPosts(correo).subscribe((res) => {
+      this.confirmacion = true;
+      console.log("Verificando: CORRESTO");
+      this.posts = res["items"];
+      if(res["contrasena"] == contra){
+        const usuario = res["nombre"];
+        const fono = res["telefono"];
+        const conductor = res["conductor"];
+        const direccion = res["direccion"]
+        this.authService.setDatos(correo,usuario,fono,conductor,direccion);
+        this.router.navigate(['/lobby']);
+      }else{
+        console.log("error")
+        this.animation = this.animationCtrl
+        .create()
+        .addElement(document.getElementsByName("Contra"))
+        .duration(500)
+        .iterations(2)
+        .keyframes([
+          { offset: 0,transform: 'translateX(0px)' },
+          { offset: 0.5, transform: 'translateX(10px)' },
+          { offset: 1, transform: 'translateX(0px)' },
+        ])
+        this.animation.play();
+      }
+      
+    }, (error) => {
+      this.confirmacion = false;
+      console.log("Error");
+      this.animation = this.animationCtrl
+      .create()
+      .addElement(document.getElementsByName("Correo"))
+      .duration(500)
+      .iterations(2)
+      .keyframes([
+        { offset: 0,transform: 'translateX(0px)' },
+        { offset: 0.5, transform: 'translateX(10px)' },
+        { offset: 1, transform: 'translateX(0px)' },
+      ])
+      this.animation.play();
+    })
+  }
+ 
+  enviarCorreo() {
+    this.authService.getMail();
+    this.emailService.enviarCorreo('carl.molina@duocuc.cl ', 'Prueba', 'Epico')
+      .subscribe(
+        (response) => {
+          console.log('Correo enviado con éxito', response);
+        },
+        (error) => {
+          console.error('Error al enviar el correo', error);
+        }
+      );
+  }
 }
