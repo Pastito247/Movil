@@ -25,6 +25,12 @@ const routes: Routes = [
     path: 'rescontra',
     loadChildren: () => import('./rescontra/rescontra.module').then( m => m.RescontraPageModule)
   },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
+  
+    
 
 
 ];
