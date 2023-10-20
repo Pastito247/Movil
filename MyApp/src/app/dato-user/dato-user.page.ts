@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-dato-user',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatoUserPage implements OnInit {
 
-  constructor() { }
+  usuario!: string | null;
+  correo!: string | null;
+  fono!: number | null;
+  conductor!: number | null;
+  direccion!: string | null;
+  isConductor: boolean = false;
+
+
+  constructor(private api: ApiService,private authService: AuthService) { }
 
   ngOnInit() {
+    this.usuario = this.authService.getUser();
+    this.fono = this.authService.getFono();
+    this.correo = this.authService.getMail();
+    this.direccion = this.authService.getDireccion();
+    this.conductor = this.authService.getConductor();
+
+    if(this.conductor === 1){
+      this.isConductor = true;
+    }
+
+    console.log(this.conductor)
+    
   }
 
 }

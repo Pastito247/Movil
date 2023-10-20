@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>datoUser</ion-title>
+    <!-- Agregué para animación #title" -->
+    <ion-title id="item" item>DuocExpress </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +11,8 @@
       <ion-title size="large">datoUser</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <label for="Datos">
+    <h3>nombre {{ usuario }}</h3>
+  </label>
 </ion-content>
