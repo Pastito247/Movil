@@ -44,5 +44,25 @@ label{
   #item{
     color: white;
   }
+ 
+  #texto{
+    text-align: center;
+    background-color: #a5a4a4;
+    margin: 2%;
+  }
+  span{
+    color: yellow;
+  }
 
-  
+  #img{
+    display: flex;
+    margin-top: 2%;
+    margin-left: 37%;
+    height: 100px;
+    width: 100px;
+  }
+  #volver{
+    display: flex;
+    margin-left: center;
+    
+  }
