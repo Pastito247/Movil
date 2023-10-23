@@ -46,21 +46,21 @@ export class HomePage implements OnInit {
   }
 
   validar() {
-    var correo = (<HTMLInputElement>document.getElementById("correo")).value;
-    var contra = (<HTMLInputElement>document.getElementById("contra")).value;
-    console.log(correo);
+    var mail = (<HTMLInputElement>document.getElementById("correo")).value;
+    var pass = (<HTMLInputElement>document.getElementById("contra")).value;
+    console.log(mail);
     
     // validacion
-    this.api.getPosts(correo).subscribe((res) => {
+    this.api.getPosts(mail).subscribe((res) => {
       this.confirmacion = true;
       console.log("Verificando: CORRESTO");
       this.posts = res["items"];
-      if(res["contrasena"] == contra){
+      if(res["contrasena"] == pass){
         const usuario = res["nombre"];
         const fono = res["telefono"];
         const conductor = res["conductor"];
         const direccion = res["direccion"]
-        this.authService.setDatos(correo,usuario,fono,conductor,direccion);
+        this.authService.setDatos(mail,usuario,fono,conductor,direccion);
         if(res['conductor']=== 1){
           this.router.navigate(['/conductor']);
         }else{

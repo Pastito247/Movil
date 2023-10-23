@@ -20,33 +20,33 @@ export class RegisterPage implements OnInit {
     
   isChecked: boolean = false; // Define la propiedad y establece un valor inicial
 
-
-  // Función para mostrar el valor del ion-checkbox
+//Crear Post y enviar a la base de datos
     crearPost(){
+        // Función para mostrar el valor del ion-checkbox
       if(this.isChecked){
         this.conductor = 1
       }else{
         this.conductor = 0
       }
-      var nombre = (<HTMLInputElement>document.getElementById("nombre")).value;
-      var fono = (<HTMLInputElement>document.getElementById("fono")).value;
-      var contrasena = (<HTMLInputElement>document.getElementById("contra")).value;
-      var correo = (<HTMLInputElement>document.getElementById("correo")).value;
-      var conductor = this.conductor;
-      var direccion = (<HTMLInputElement>document.getElementById("direccion")).value;
+      var name = (<HTMLInputElement>document.getElementById("nombre")).value;
+      var phone = (<HTMLInputElement>document.getElementById("fono")).value;
+      var password = (<HTMLInputElement>document.getElementById("contra")).value;
+      var mail = (<HTMLInputElement>document.getElementById("correo")).value;
+      var driver = this.conductor;
+      var direction = (<HTMLInputElement>document.getElementById("direccion")).value;
       
       
       
       
-      console.log(conductor);
+      console.log(driver);
 
       var post={
-        conductor: conductor,
-        contrasena: contrasena,
-        correo: correo,
-        direccion: direccion,
-        nombre: nombre,
-        telefono: fono
+        conductor: driver,
+        contrasena: password,
+        correo: mail,
+        direccion: direction,
+        nombre: name,
+        telefono: phone
       };
       
 
