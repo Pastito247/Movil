@@ -38,26 +38,22 @@ export class LobbyPage implements OnInit {
     console.log(this.conductor)
   }
 
-  ionViewDidEnter(){
-    this.createMap();
-  }
 
-
-  async createMap(){
-    this.map = await GoogleMap.create({
-    id: 'my-map',
-    apiKey: environment.mapsKey,
-    element: this.mapRef.nativeElement,
-    config: {
-      center: {
-        lat:-33.04353334085918,
-        lng:-71.60435289558721,
-      },
-      zoom: 14,
-    }
-    });
-    await this.addMarkers();
-  }
+  // async createMap(){
+  //   this.map = await GoogleMap.create({
+  //   id: 'my-map',
+  //   apiKey: environment.mapsKey,
+  //   element: this.mapRef.nativeElement,
+  //   config: {
+  //     center: {
+  //       lat:-33.04353334085918,
+  //       lng:-71.60435289558721,
+  //     },
+  //     zoom: 14,
+  //   }
+  //   });
+  //   await this.addMarkers();
+  // }
 
   async addMarkers(){
     
