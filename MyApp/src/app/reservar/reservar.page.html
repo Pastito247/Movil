@@ -56,14 +56,17 @@
       <ion-title id="item">DuocExpress</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> 
-    <ion-content>
-      <div class="container">
-        <capacitor-google-map #map></capacitor-google-map>
-        </div>
-
-        
-    </ion-content>
-  </ion-content>
-
-</div>
+  <ion-grid [fixed]="true" >
+    <ion-row>
+      <ion-col>Patente</ion-col>
+      <ion-col>Lugar</ion-col>
+      <ion-col>Hora</ion-col>
+      <ion-col>Reservar</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let post of posts">
+      <ion-col>{{post.patente}}</ion-col>
+      <ion-col>{{post.lugar}}</ion-col>
+      <ion-col>{{post.hora}}</ion-col>
+      <ion-col><ion-button (click)="reservar()">reservar</ion-button></ion-col>
+    </ion-row>
+  </ion-grid>

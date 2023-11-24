@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'dato-user',
     loadChildren: () => import('./dato-user/dato-user.module').then( m => m.DatoUserPageModule)
-  },  {
+  },
+  {
     path: 'rescontra',
     loadChildren: () => import('./rescontra/rescontra.module').then( m => m.RescontraPageModule)
   },
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'cambiarpass',
     loadChildren: () => import('./cambiarpass/cambiarpass.module').then( m => m.CambiarpassPageModule)
+  },
+  {
+    path: 'reservar',
+    loadChildren: () => import('./reservar/reservar.module').then( m => m.ReservarPageModule)
   },
 
 

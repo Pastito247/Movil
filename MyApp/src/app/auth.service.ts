@@ -9,16 +9,12 @@ export class AuthService {
   private fono: number | null = null;
   private conductor: number | null = null;
   private direccion: string | null = null;
-  private code: string | null = null;
   setDatos(correo: string, user: string , fono: number, conductor: number, direccion: string): void {
     this.usuario = user;
     this.correo = correo;
     this.fono = fono;
     this.conductor = conductor;
     this.direccion = direccion;
-  }
-  setCode(code : string){
-    this.code = code;
   }
   getUser(): string | null {
     return this.usuario;

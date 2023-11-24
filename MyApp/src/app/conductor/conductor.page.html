@@ -14,13 +14,81 @@
       Menu Principal
     </ion-item>
     <ion-item id="item" routerLink="/dato-user">
-      <ion-icon id="item" name="person-outline" slot="start" (click)="setOpen(true)"></ion-icon>
+      <ion-icon id="item" name="person-outline" slot="start"></ion-icon>
       Perfil
     </ion-item>
     
-    <ion-item id="item" routerLink="/start">
-      <ion-icon id="item" name="car-outline" slot="start"></ion-icon>
-      Registrate vehiculo
+    <ion-item id="item" (click)="setOpen(true)">
+      <ion-icon id="item" name="car-outline" slot="start" ></ion-icon>
+      Registrar Viajes
+      <ion-modal [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Crear Viaje</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="setOpen(false)">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+                <ion-input
+                fill="solid"
+                label="Patente"
+                labelPlacement="floating"
+                helperText="Ingrese Patente"
+                name="Patente"
+                id="patente"
+                maxlength="6"
+                ></ion-input>
+            <ion-input
+                fill="solid"
+                label="Color"
+                labelPlacement="floating"
+                helperText="Ingrese Color"
+                name="Color"
+                id="color"
+            ></ion-input>
+            <ion-input
+              fill="solid"
+                label="modelo"
+                labelPlacement="floating"
+                helperText="Ingrese modelo"
+                name="modelo"
+                id="modelo"
+            ></ion-input>
+            <ion-input
+            fill="solid"
+              label="Lugar"
+              labelPlacement="floating"
+              helperText="Ingrese Destino"
+              name="Marca"
+              id="lugar"
+          ></ion-input>
+          <ion-input
+          min="0"
+          max="12"
+          type="number"
+          fill="solid"
+            label="Hora"
+            labelPlacement="floating"
+            helperText="Ingrese Hora"
+            name="Hora"
+            id="hora"
+          ></ion-input>
+          <ion-input
+          type="number"
+          fill="solid"
+            label="Capacidad"
+            labelPlacement="floating"
+            helperText="Ingrese Capacidad"
+            name="Capacidad"
+            id="capacidad"
+        ></ion-input>
+            <ion-button (click)="crearViaje()">Confirmar</ion-button>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
     </ion-item>
     
     <ion-item id="item" routerLink="/chatbox">
